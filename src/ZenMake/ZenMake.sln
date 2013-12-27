@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZenMake", "ZenMake\ZenMake.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZenMake.App", "ZenMake.App\ZenMake.App.csproj", "{2553F205-7FEA-4570-8397-772A19128289}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZenMake.Tests", "ZenMake.Tests\ZenMake.Tests.csproj", "{CFC3BC3D-517F-49DF-8648-F16CA1FEB964}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{2553F205-7FEA-4570-8397-772A19128289}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2553F205-7FEA-4570-8397-772A19128289}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2553F205-7FEA-4570-8397-772A19128289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFC3BC3D-517F-49DF-8648-F16CA1FEB964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFC3BC3D-517F-49DF-8648-F16CA1FEB964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFC3BC3D-517F-49DF-8648-F16CA1FEB964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFC3BC3D-517F-49DF-8648-F16CA1FEB964}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
