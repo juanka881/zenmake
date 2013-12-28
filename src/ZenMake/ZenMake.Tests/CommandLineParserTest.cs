@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
+using ZenMake.CommandLine;
 
 namespace ZenMake.Tests
 {
