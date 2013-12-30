@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ZenMake.Compiling;
 using ZenMake.Core;
 
 namespace ZenMake.Modules.RunnerModule
@@ -21,6 +22,16 @@ namespace ZenMake.Modules.RunnerModule
 
 			Console.WriteLine("parameters:");
 			Console.WriteLine(args.Parameters);
+
+			var repo = new ProjectFileRepo();
+
+			var projectFile = repo.Load(args.ProjectFilename);
+
+			var compiler = new ProjectCompiler();
+			
+			compiler.Compile(projectFile);
+
+			Console.WriteLine("all targets completed");
 		}
 	}
 }

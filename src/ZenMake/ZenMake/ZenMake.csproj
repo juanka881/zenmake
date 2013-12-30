@@ -43,6 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandLine\CommandLineParser.cs" />
+    <Compile Include="Compiling\CSharpCompilerArgs.cs" />
+    <Compile Include="Compiling\CSharpCompiler.cs" />
+    <Compile Include="Compiling\CSharpCompilerArgsBuilder.cs" />
+    <Compile Include="Compiling\CSharpCompilerResult.cs" />
+    <Compile Include="Compiling\FrameworkVersion40Info.cs" />
+    <Compile Include="Compiling\ProjectCompiler.cs" />
+    <Compile Include="Compiling\ProjectCompilerResult.cs" />
     <Compile Include="Core\CommandArgs.cs" />
     <Compile Include="Core\ICommandArgsParser.cs" />
     <Compile Include="Core\ListExtensions.cs" />

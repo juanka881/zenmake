@@ -15,6 +15,8 @@ namespace ZenMake
 
 		public string Name { get; private set; }
 
+		public string Directory { get; private set; }
+
 		public IList<string> SourceFiles { get; private set; }
 
 		public IList<string> ReferenceFiles { get; private set; }
