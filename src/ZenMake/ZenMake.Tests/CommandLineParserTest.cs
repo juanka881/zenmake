@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
-using ZenMake.CommandLine;
+using ZenMake.Core;
 
 namespace ZenMake.Tests
 {
@@ -16,23 +16,23 @@ namespace ZenMake.Tests
 		[Test]
 		public void can_new()
 		{
-			var parser = new CommandLineParser();
+			var parser = new RequestTokenizer();
 		}
 
 		[TestCase("")]
 		[TestCase(null)]
 		public void can_parse_empty_str(string str)
 		{
-			var parser = new CommandLineParser();
-			var args = parser.GetArguments(str);
+			var parser = new RequestTokenizer();
+			var args = parser.GetTokens(str);
 			Assert.AreEqual(false, args.Any());
 		}
 		
 		[TestCase("test1 test2")]
 		public void can_parse_symbols(string str)
 		{
-			var parser = new CommandLineParser();
-			var args = parser.GetArguments(str).ToList();
+			var parser = new RequestTokenizer();
+			var args = parser.GetTokens(str).ToList();
 			Assert.AreEqual(2, args.Count);
 			Assert.AreEqual("test1", args[0]);
 			Assert.AreEqual("test2", args[1]);
@@ -42,8 +42,8 @@ namespace ZenMake.Tests
 		[TestCase("\"test1\" \"test2\"", TestName = "single quotes")]
 		public void can_parse_string(string str)
 		{
-			var parser = new CommandLineParser();
-			var args = parser.GetArguments(str).ToList();
+			var parser = new RequestTokenizer();
+			var args = parser.GetTokens(str).ToList();
 			Assert.AreEqual(2, args.Count);
 			Assert.AreEqual("test1", args[0]);
 			Assert.AreEqual("test2", args[1]);
@@ -52,8 +52,8 @@ namespace ZenMake.Tests
 		[Test]
 		public void can_parse_string_with_quote()
 		{
-			var parser = new CommandLineParser();
-			var args = parser.GetArguments("\"hello there \\\"juanka\\\"\"").ToList();
+			var parser = new RequestTokenizer();
+			var args = parser.GetTokens("\"hello there \\\"juanka\\\"\"").ToList();
 			Assert.AreEqual("hello there \"juanka\"", args[0]);
 		}
 
@@ -62,17 +62,17 @@ namespace ZenMake.Tests
 		[TestCase("{ name: \"ruby\" }", ExpectedResult = "{ name: \"ruby\" }", TestName = "object property string")]
 		public string can_parse_object(string str)
 		{
-			var parser = new CommandLineParser();
-			var arg = parser.GetArguments(str).ToList().FirstOrDefault();
+			var parser = new RequestTokenizer();
+			var arg = parser.GetTokens(str).ToList().FirstOrDefault();
 			return arg;
 		}
 
 		[Test]
 		public void can_parse_all()
 		{
-			var parser = new CommandLineParser();
+			var parser = new RequestTokenizer();
 			var str = "kb a7 db/bounce { db: 'localhost', store: \"c:\\program files\\mssqlserver\\db.dat\"}";
-			var args = parser.GetArguments(str).ToList();
+			var args = parser.GetTokens(str).ToList();
 			Assert.AreEqual("kb", args[0]);
 			Assert.AreEqual("a7", args[1]);
 			Assert.AreEqual("db/bounce", args[2]);

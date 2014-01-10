@@ -51,13 +51,13 @@
     <Compile Include="CommandLineRunnerTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\ZenMake\ZenMake.csproj">
       <Project>{8451a34b-8511-487c-ad9c-92ccf9285f58}</Project>
       <Name>ZenMake</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

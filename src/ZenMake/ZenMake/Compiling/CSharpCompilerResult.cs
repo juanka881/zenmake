@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 
@@ -20,7 +19,7 @@ namespace ZenMake.Compiling
 		public Exception InvocationError { get; private set; }
 
 		public string OutputText { get; private set; }
-		public string OutputAssemblyFile { get; private set; }
+		public string OutputAssemblyFilepath { get; private set; }
 
 		public IList<string> Warnings { get; private set; }
 		public IList<string> Errors { get; private set; }
@@ -44,7 +43,7 @@ namespace ZenMake.Compiling
 			this.ExiteCode = exitCode;
 			this.InvocationError = invocationError;
 			this.OutputText = outputText;
-			this.OutputAssemblyFile = outputAssemblyFile;
+			this.OutputAssemblyFilepath = outputAssemblyFile;
 			this.Warnings = new List<string>(warnings);
 			this.Errors = new List<string>(errors);
 		}

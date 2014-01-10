@@ -30,8 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\packages\Autofac.3.3.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\..\packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -42,38 +48,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandLine\CommandLineParser.cs" />
+    <Compile Include="Exceptions\HandlerNotFoundException.cs" />
+    <Compile Include="Exceptions\RequestParserNotFoundException.cs" />
+    <Compile Include="Exceptions\HandlerArgCastException.cs" />
+    <Compile Include="Core\ZMLogger.cs" />
+    <Compile Include="Core\ZMRunner.cs" />
+    <Compile Include="Modules\RunModule\RunArg.cs" />
+    <Compile Include="Targets\Target.cs" />
+    <Compile Include="Targets\TargetAttribute.cs" />
+    <Compile Include="Targets\TargetFinder.cs" />
+    <Compile Include="Core\RequestTokenizer.cs" />
     <Compile Include="Compiling\CSharpCompilerArgs.cs" />
     <Compile Include="Compiling\CSharpCompiler.cs" />
-    <Compile Include="Compiling\CSharpCompilerArgsBuilder.cs" />
     <Compile Include="Compiling\CSharpCompilerResult.cs" />
     <Compile Include="Compiling\FrameworkVersion40Info.cs" />
+    <Compile Include="Helpers\LispyNamer.cs" />
+    <Compile Include="Helpers\PathHelper.cs" />
     <Compile Include="Compiling\ProjectCompiler.cs" />
     <Compile Include="Compiling\ProjectCompilerResult.cs" />
-    <Compile Include="Core\CommandArgs.cs" />
-    <Compile Include="Core\ICommandArgsParser.cs" />
-    <Compile Include="Core\ListExtensions.cs" />
-    <Compile Include="ProjectFileData.cs" />
-    <Compile Include="ProjectFileExtensions.cs" />
-    <Compile Include="Modules\ProjectModule\ProjectAddArgs.cs" />
-    <Compile Include="Modules\ProjectModule\ProjectAddHandler.cs" />
-    <Compile Include="Modules\ProjectModule\ProjectArgsParser.cs" />
-    <Compile Include="ProjectFile.cs" />
-    <Compile Include="Modules\ProjectModule\ProjectRemoveArgs.cs" />
-    <Compile Include="Modules\ProjectModule\ProjectRemoveHandler.cs" />
-    <Compile Include="CommandLine\CommandLineRunner.cs" />
-    <Compile Include="Modules\ProjectModule\ProjectNewArgs.cs" />
-    <Compile Include="Modules\ProjectModule\ProjectNewHandler.cs" />
-    <Compile Include="Core\ICommandHandler.cs" />
+    <Compile Include="Core\RequestArg.cs" />
+    <Compile Include="Core\HandlerBase.cs" />
+    <Compile Include="Core\IRequestParser.cs" />
+    <Compile Include="Helpers\ListExtensions.cs" />
+    <Compile Include="Core\ZMFileData.cs" />
+    <Compile Include="Core\ZMFileExtensions.cs" />
+    <Compile Include="Modules\ProjectModule\Add\ProjectAddArg.cs" />
+    <Compile Include="Modules\ProjectModule\Add\ProjectAddHandler.cs" />
+    <Compile Include="Modules\ProjectModule\ProjectRequestParser.cs" />
+    <Compile Include="Core\ZMFile.cs" />
+    <Compile Include="Modules\ProjectModule\Remove\ProjectRemoveArg.cs" />
+    <Compile Include="Modules\ProjectModule\Remove\ProjectRemoveHandler.cs" />
+    <Compile Include="Modules\ProjectModule\New\ProjectNewArg.cs" />
+    <Compile Include="Modules\ProjectModule\New\ProjectNewHandler.cs" />
+    <Compile Include="Core\IHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProjectFileRepo.cs" />
-    <Compile Include="ProjectFileRepoExtensions.cs" />
-    <Compile Include="Modules\RunnerModule\RunnerArgs.cs" />
-    <Compile Include="Modules\RunnerModule\RunnerArgsParser.cs" />
-    <Compile Include="Modules\RunnerModule\RunnerHandler.cs" />
+    <Compile Include="Core\ZMFileRepo.cs" />
+    <Compile Include="Core\ZMFileRepoExtensions.cs" />
+    <Compile Include="Modules\RunModule\RunRequestParser.cs" />
+    <Compile Include="Modules\RunModule\RunHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CommandLine\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
